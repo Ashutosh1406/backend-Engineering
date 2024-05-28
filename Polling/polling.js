@@ -33,6 +33,7 @@ app.listen(8002,() => console.log('Listening on Port 8002'));
 function updateJobs(jobID , progress){
     jobs[jobID] = progress;
     if(progress==100){
+        console.log('finished')
         return;
     }
 
