@@ -16,7 +16,9 @@ app.post("/submit", (req, res) => {
 // Fetching the status of JobID from jobs through 'LONG POLLING MECHANISM'
 app.get('/checkstatus', async (req, res) => {
     try {
+        // const jobID = req.query.jobID;
         await longPollCheckStatus(jobID);
+        console.log(jobs);
         res.end("\n\nJOB COMPLETED FOR " + jobs[jobID] + "%\n\n");
     } catch (error) {
         res.status(500).end("\n\nERROR CHECKING JOB STATUS\n\n");
